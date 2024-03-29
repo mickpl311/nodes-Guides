@@ -42,30 +42,30 @@ source ~/.bash_profile
 go version
 ```
 
-# Build 04.03.24
+# Build 29.03.24
 ```python
 cd $HOME && mkdir -p go/bin/
 git clone https://github.com/desmos-labs/desmos.git
 cd desmos
-git checkout v7.0.1
+git checkout v7.0.2
 make install
 
 ```
-*******🟢UPDATE🟢******* 04.03.24
+*******🟢UPDATE🟢******* 29.03.24
 ```python
 cd $HOME/desmos
 git pull
 git checkout v7.0.1
 make install
 desmos version --long | grep -e commit -e version
-#commit: e5fa498d7f056b3ab39bb2a342e3d88187cd6b46
-#version: 7.0.1
+#commit: 725b7ff3f7eebb76f227f1921df5f83370c48298
+#version: 7.0.2
 sudo systemctl restart desmos && sudo journalctl -u desmos -f -o cat
 ```
 
 `desmos version --long | grep -e commit -e version`
-- version: 7.0.1
-- commit: e5fa498d7f056b3ab39bb2a342e3d88187cd6b46
+- version: 7.0.2
+- commit: 725b7ff3f7eebb76f227f1921df5f83370c48298
 
 ```python
 desmos init STAVR_guide --chain-id desmos-mainnet
