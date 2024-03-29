@@ -43,28 +43,28 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 25.01.24
+# Build 29.03.24
 ```python
 cd $HOME
 git clone https://github.com/cosmic-horizon/QWOYN.git
 cd QWOYN
-git checkout v5.4.1
+git checkout v5.4.2
 make install
 ```
-*******🟢UPDATE🟢******* 25.01.24
+*******🟢UPDATE🟢******* 29.03.24
 ```python
 cd $HOME/QWOYN && git pull
-git checkout v5.4.1
+git checkout v5.4.2
 make install
 qwoynd version --long | grep -e commit -e version
-#version: 5.4.1
-#commit: 9a082a7f0839b6d324ae9d65824569f8b1787593
+#version: 5.4.2
+#commit: 694247e4c852af4f04e8d1616b988bb7d107e9f5
 sudo systemctl restart qwoynd && sudo journalctl -u qwoynd -f -o cat
 ```
 
 `qwoynd version --long`
-- version: 5.4.1
-- commit: 9a082a7f0839b6d324ae9d65824569f8b1787593
+- version: 5.4.2
+- commit: 694247e4c852af4f04e8d1616b988bb7d107e9f5
 
 ```python
 qwoynd init STAVR_guide --chain-id qwoyn-1
