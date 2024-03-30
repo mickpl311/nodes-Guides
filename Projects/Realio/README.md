@@ -5,116 +5,6 @@
 
 <!-- END_TABLE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/realio/realiovaloper1n99gv9edgtvktcpxld6x9cp6zvq7e28mzjwwg4)
 =
 
@@ -159,17 +49,17 @@ source $HOME/.bash_profile && \
 go version
 ```
 
-# Build 11.07.23
+# Build 01.04.23
 ```python
 cd $HOME
 git clone https://github.com/realiotech/realio-network.git
 cd realio-network
-git checkout v0.8.3
+git checkout v0.9.0
 make install
 ```
 `realio-networkd version --long`
-- version: 0.8.3
-- commit: 55f63ff6ef1d98997106aab16e6accff43f40755
+- version: 0.9.0
+- commit: 9c78be67e8fc06997c07a5c84559d41f67cf196f
 
 ```python
 realio-networkd init STAVRguide --chain-id realionetwork_3301-1
