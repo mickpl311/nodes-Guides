@@ -41,23 +41,30 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 18.12.23
+# Build 01.04.24
 ```python
 cd $HOME && mkdir -p go/bin/
 git clone https://github.com/xpladev/xpla
 cd xpla
-git checkout v1.3.3
+git checkout v1.4.0
 make install
 
 ```
-*******🟢UPDATE🟢******* 00.00.23
+*******🟢UPDATE🟢******* 01.04.24
 ```python
-SOOON
+cd $HOME/xpla
+git fetch --all
+git checkout v1.4.0
+make install
+xplad version --long | grep -e commit -e version
+#version: v1.4.0
+#commit: 689b7af1b2c2d274b2833cee0ab958e163efbfa6
+sudo systemctl restart xplad && sudo journalctl -fu xplad -o cat
 ```
 
 `xplad version --long | grep -e commit -e version`
-- version: v1.3.3
-- commit: 263e93fa7cc065deda5ba5c172ffff5db9124327
+- version: v1.4.0
+- commit: 689b7af1b2c2d274b2833cee0ab958e163efbfa6
 
 ```python
 xplad init STAVR_guide --chain-id dimension_37-1
