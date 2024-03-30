@@ -5,156 +5,6 @@
 
 <!-- END_TABLE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/impacthub/ixovaloper1htcnjafe94aqyxfapw2dlqz242g2n2tqp9lulh)
 =
 
@@ -199,7 +49,7 @@ source $HOME/.bash_profile && \
 go version
 ```
 
-# Build 28.08.23
+# Build 08.08.23
 ```python
 cd $HOME
 git clone https://github.com/ixofoundation/ixo-blockchain.git
@@ -208,14 +58,21 @@ git checkout v2.0.0
 make install
 
 ```
-*******🟢UPDATE🟢******* 00.00.23
+*******🟢UPDATE🟢******* 03.04.24
 ```python
-SOOON
+cd $HOME/ixo-blockchain
+git fetch --all
+git checkout v3.0.0
+make install
+ixod version --long | grep -e commit -e version
+#version : 3.0.0
+#commit: a161b2ef40ca56dd066bc0b1eb21913174c65b89
+sudo systemctl restart ixod && journalctl -fu ixod -o cat
 ```
 
 `ixod version --long | head`
-- version: 2.0.0
-- commit: f41a093c66cc1bfe39bb276426c3f2610649efc8
+- version: 3.0.0
+- commit: a161b2ef40ca56dd066bc0b1eb21913174c65b89
 
 ```python
 ixod init STAVRguide --chain-id ixo-5
