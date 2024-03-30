@@ -1,9 +1,11 @@
 <!-- START_TABLE -->
 | 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
 |-------------|---------|---------------|
-| 1004309.8 | 0.109988 | 110462.035873 |
+| 1004311.9 | 0.124712 | 125249.748311 |
 
 <!-- END_TABLE -->
+
+
 
 [🔥OUR VALIDATOR🔥](https://restake.app/impacthub/ixovaloper1htcnjafe94aqyxfapw2dlqz242g2n2tqp9lulh)
 =
