@@ -49,12 +49,12 @@ source $HOME/.bash_profile && \
 go version
 ```
 
-# Build 08.08.23
+# Build 03.04.24
 ```python
 cd $HOME
 git clone https://github.com/ixofoundation/ixo-blockchain.git
 cd ixo-blockchain
-git checkout v2.0.0
+git checkout v3.0.0
 make install
 
 ```
