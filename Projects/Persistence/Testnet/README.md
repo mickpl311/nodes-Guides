@@ -18,7 +18,7 @@
 
 # 1) Auto_install script
 ```python
-SOOON
+wget -O persist https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Persistence/Testnet/persist && chmod +x persist && ./persist
 ```
 
 # 2) Manual installation
