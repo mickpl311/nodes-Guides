@@ -1,3 +1,6 @@
+[🔥OUR VALIDATOR🔥](https://restake.app/persistence/persistencevaloper1n4mw69thxqggt4p2j8t420nudn0gceve5kchck)
+=
+
 # Persistence Mainnet guide
 
 ![perst](https://github.com/obajay/nodes-Guides/assets/44331529/6fb9af89-d670-47f8-a196-e6f2aad8a1ea)
