@@ -18,7 +18,7 @@
 
 # 1) Auto_install script
 ```python
-SOOON
+wget -O persism https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Persistence/persism && chmod +x persism && ./persism
 ```
 
 # 2) Manual installation
