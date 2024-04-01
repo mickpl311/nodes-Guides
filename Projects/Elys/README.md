@@ -63,7 +63,7 @@ sudo systemctl restart elysd && sudo journalctl -u elysd -f -o cat
 ```
 
 `elysd version --long`
-- version: v0.29.20
+- version: v0.29.30
 - commit: dea67d2d148a6c412bfe1ce9c65f36f5efc91919
 
 ```python
