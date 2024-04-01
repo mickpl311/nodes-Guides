@@ -18,7 +18,7 @@
 
 # 1) Auto_install script
 ```python 
-SOOON
+wget -O nibidm https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Nibiru/nibidm && chmod +x nibidm && ./nibidm
 ```
 # 2) Manual installation
 
@@ -40,7 +40,7 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Binary   04.10.23
+# Binary   30.03.24
 ```python 
 cd $HOME && mkdir -p go/bin/
 curl -s https://get.nibiru.fi/@v1.1.0! | bash
