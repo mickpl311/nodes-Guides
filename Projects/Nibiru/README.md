@@ -178,3 +178,93 @@ sudo journalctl -u nibid -f -o cat
 ```python
 nibid query bank balances nibi...addressnibi1yjgn7z09ua9vms259j
 ```
+
+# price feeder (✔️Oracle)
+
+
+```python
+mkdir -p $HOME/.nibid/pricefeeder && cd $HOME/.nibid/pricefeeder
+wget https://github.com/NibiruChain/pricefeeder/releases/download/v1.0.1/pricefeeder_1.0.1_linux_amd64.tar.gz
+tar -xvf pricefeeder_1.0.1_linux_amd64.tar.gz
+mv pricefeeder /usr/local/bin/
+```
+`sha256sum /usr/local/bin/pricefeeder`
+- 3448d8781fbda787dad42a075c0115e87cca8976737693310d14eec5bac54dff
+
+## Create and fund a wallet 
+`(your validator must be synced and in the active set)`
+```python
+nibid keys add nibiru_pf_wallet
+```
+```python
+export CHAIN_ID="cataclysm-1"
+export GRPC_ENDPOINT="localhost:9090"
+export WEBSOCKET_ENDPOINT="ws://localhost:26657/websocket"
+export EXCHANGE_SYMBOLS_MAP='{"bitfinex":{"ubtc:unusd":"tBTCUSD","ubtc:uusd":"tBTCUSD","ueth:unusd":"tETHUSD","ueth:uusd":"tETHUSD","uusdc:uusd":"tUDCUSD","uusdc:unusd":"tUDCUSD"},"coingecko":{"ubtc:uusd":"bitcoin","ubtc:unusd":"bitcoin","ueth:uusd":"ethereum","ueth:unusd":"ethereum","uusdt:uusd":"tether","uusdt:unusd":"tether","uusdc:uusd":"usd-coin","uusdc:unusd":"usd-coin","uatom:uusd":"cosmos","uatom:unusd":"cosmos","ubnb:uusd":"binancecoin","ubnb:unusd":"binancecoin","uavax:uusd":"avalanche-2","uavax:unusd":"avalanche-2","usol:uusd":"solana","usol:unusd":"solana","uada:uusd":"cardano","uada:unusd":"cardano"}}'
+export FEEDER_MNEMONIC="<your mnemonic here>"
+export VALIDATOR_ADDRESS="nibi1valoper..."
+```
+## Create a service file
+```python
+tee /etc/systemd/system/pricefeeder.service<<EOF
+[Unit]
+Description=Nibiru Pricefeeder
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=exec
+User=$USER
+ExecStart=/usr/local/bin/pricefeeder
+Restart=on-failure
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+PermissionsStartOnly=true
+LimitNOFILE=65535
+Environment=CHAIN_ID='$CHAIN_ID'
+Environment=GRPC_ENDPOINT='$GRPC_ENDPOINT'
+Environment=WEBSOCKET_ENDPOINT='$WEBSOCKET_ENDPOINT'
+Environment=EXCHANGE_SYMBOLS_MAP='$EXCHANGE_SYMBOLS_MAP'
+Environment=FEEDER_MNEMONIC='$FEEDER_MNEMONIC'
+Environment=VALIDATOR_ADDRESS='$VALIDATOR_ADDRESS'
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+## Start
+```python
+systemctl daemon-reload
+systemctl enable pricefeeder
+systemctl restart pricefeeder && journalctl -u pricefeeder -f -o cat
+```
+
+## Linking the wallet
+```python
+nibid tx oracle set-feeder <FEEDER_WALLET_ADDRESS> --from <name_vallet> --fees 5000unibi -y
+```
+
+
+### View a list of validators, which are Oracle
+```python
+nibid q oracle aggregate-votes | grep 'voter'
+```
+### VotePeriods
+```python
+nibid q account <FEEDER_WALLET_ADDRESS> -o json | jq -r .sequence
+    OR
+nibid q txs --events='message.sender=<FEEDER_WALLET_ADDRESS>&message.action=/nibiru.oracle.v1beta1.MsgAggregateExchangeRateVote' -oj|jq -r '.total_count'
+```
+### View Pricefeeder passes
+```python
+nibid q oracle miss <nibivaloper1...>
+```
+## Delete Pricefeeder
+```python
+systemctl stop pricefeeder
+systemctl disable pricefeeder
+rm /etc/systemd/system/pricefeeder.service
+systemctl daemon-reload
+cd $HOME
+rm /usr/local/bin/pricefeeder
+```
