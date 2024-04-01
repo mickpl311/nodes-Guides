@@ -17,7 +17,7 @@
 
 # 1) Auto_install script
 ```python
-OOOON
+wget -O galactict https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/galactict && chmod +x galactict && ./galactict
 ```
 
 # 2) Manual installation
