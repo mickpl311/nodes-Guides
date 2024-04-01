@@ -1,9 +1,11 @@
 <!-- START_TABLE -->
 | 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
 |-------------|---------|---------------|
-| 5922171.4 | 0.00016482 | 976.092301415 |
+| 5922190.0 | 0.00016069 | 951.636726245 |
 
 <!-- END_TABLE -->
+
+
 
 
 [🔥OUR VALIDATOR🔥](https://restake.app/chihuahua/chihuahuavaloper1my7fdnj0dl04rvqnjh92r5epq4c8808xw2jytk)
