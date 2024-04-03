@@ -5,14 +5,6 @@
 
 <!-- END_TABLE -->
 
-
-
-
-
-
-
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/impacthub/ixovaloper1htcnjafe94aqyxfapw2dlqz242g2n2tqp9lulh)
 =
 
