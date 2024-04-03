@@ -70,7 +70,6 @@ sudo systemctl restart wardend && sudo journalctl -u wardend -f -o cat
 
 ```python
 wardend init STAVR_guide
-wardend config chain-id alfama
 ```    
 
 ## Create/recover wallet
