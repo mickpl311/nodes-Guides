@@ -61,7 +61,6 @@ chmod +x wardend
 mv wardend $HOME/go/bin/wardend
 
 wardend init $Validator_Name --chain-id $CHAIN_ID
-wardend config chain-id $CHAIN_ID
 
 wget -O $HOME/.warden/config/genesis.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Warden/genesis.json"
 wget -O $HOME/.warden/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Warden/addrbook.json"
@@ -183,7 +182,7 @@ rm /etc/systemd/system/wardend.service
 sudo systemctl daemon-reload
 cd $HOME
 rm -rf wardenprotocol
-rm -rf .wardend
+rm -rf .warden
 rm -rf $(which wardend)
 
 break
