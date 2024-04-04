@@ -1,3 +1,10 @@
+<!-- START_TABLE -->
+| 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
+|-------------|---------|---------------|
+| 500982.6 | 0.03304448 | 16554.712714501 |
+
+<!-- END_TABLE -->
+
 
 [🔥OUR VALIDATOR🔥](https://restake.app/comdex/comdexvaloper1g6fm6xcgzrlm9d2apf3t8xvu7wrk509wxyy5rq)
 =
