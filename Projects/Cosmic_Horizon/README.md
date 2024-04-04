@@ -1,3 +1,10 @@
+<!-- START_TABLE -->
+| 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
+|-------------|---------|---------------|
+| 120790.8 | 0.111351 | 13450.185556812 |
+
+<!-- END_TABLE -->
+
 [🔥OUR VALIDATOR🔥](https://restake.app/qwoyn/qwoynvaloper1d8mhdkf2tzdszt59hvl2uq65h9l6r68y0usvc0)
 =
 
