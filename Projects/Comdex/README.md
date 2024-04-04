@@ -1,3 +1,7 @@
+
+[🔥OUR VALIDATOR🔥](https://restake.app/comdex/comdexvaloper1g6fm6xcgzrlm9d2apf3t8xvu7wrk509wxyy5rq)
+=
+
 # Comdex Mainnet guide
 
 ![comdex](https://github.com/obajay/nodes-Guides/assets/44331529/85ff40f3-076d-439e-bbcd-d4951c898825)
