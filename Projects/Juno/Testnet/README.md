@@ -156,7 +156,7 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.juno/config/config.toml
 junod tendermint unsafe-reset-all --home $HOME/.juno
 sed -i -e "s/^snapshot-interval *=.*/snapshot-interval = \"1500\"/" $HOME/.juno/config/app.toml
-curl -o - -L http://juno-t.wasm.stavr.tech:1001/wasm-junot.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.juno/ --strip-components 2
+curl -o - -L http://juno-t.wasm.stavr.tech:1021/wasm-junot.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.juno/ --strip-components 2
 sudo systemctl restart junod && journalctl -u junod -f -o cat
 ```
 # SnapShot Testnet (~4GB) updated every 5 hours   (Temporarily stopped)
@@ -167,7 +167,7 @@ sudo systemctl stop junod
 cp $HOME/.juno/data/priv_validator_state.json $HOME/.juno/priv_validator_state.json.backup
 rm -rf $HOME/.juno/data
 curl -o - -L http://junot.snapshot.stavr.tech:1030/junot/junot-snap.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.juno --strip-components 2
-curl -o - -L http://juno-t.wasm.stavr.tech:1001/wasm-junot.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.juno/ --strip-components 2
+curl -o - -L http://juno-t.wasm.stavr.tech:1021/wasm-junot.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.juno/ --strip-components 2
 mv $HOME/.juno/priv_validator_state.json.backup $HOME/.juno/data/priv_validator_state.json
 wget -O $HOME/.juno/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Juno/Testnet/addrbook.json"
 sudo systemctl restart junod && journalctl -u junod -f -o cat
