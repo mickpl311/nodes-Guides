@@ -41,22 +41,29 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 14.03.24
+# Build 05.04.24
 ```python
 cd $HOME && mkdir -p go/bin/
 git clone https://github.com/persistenceOne/persistenceCore
 cd persistenceCore
-git checkout v11.7.0-fix
+git checkout v11.9.0-rc0
 make install
 ```
-*******🟢UPDATE🟢******* 00.00.23
+*******🟢UPDATE🟢******* 05.04.24
 ```python
-SOOON
+cd $HOME/persistenceCore
+git pull
+git checkout v11.9.0-rc0
+make install
+persistenceCore version --long | grep -e commit -e version
+#version: v11.9.0-rc0
+#commit: 9395f72ea9df8bda206320548ba1d02654e5987d
+sudo systemctl restart persistenceCore && sudo journalctl -u persistenceCore -f -o cat
 ```
 
 `persistenceCore version --long | head`
-- version: v11.7.0-fix
-- commit: daa7b2ed895152144d8099c24c2fa52f6c1ce4fb
+- version: v11.9.0-rc0
+- commit: 9395f72ea9df8bda206320548ba1d02654e5987d
 
 ```python
 persistenceCore init STAVR_guide --chain-id test-core-2
