@@ -5,8 +5,6 @@
 
 <!-- END_TABLE -->
 
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/composable/centaurivaloper180wngzau7jzdw9xdqp0a4mm7740y5rfzar2p69)
 =
 
@@ -56,25 +54,25 @@ go version
 cd $HOME
 git clone https://github.com/notional-labs/composable-centauri
 cd composable-centauri
-git checkout v6.5.3
+git checkout v6.5.30
 make install
 ```
 *******🟢UPDATE🟢******* 05.04.24
 ```python
 cd $HOME/composable-centauri
 git pull
-git checkout v6.5.3
+git checkout v6.5.30
 make install
 centaurid version --long | grep -e commit -e version
-#version: v6.5.3
-#commit: 
+#version: v6.5.30
+#commit: 0e1eb20bafce1c2c09cfdd39b28d4d7b40365d9d
 sudo systemctl restart centaurid && sudo journalctl -u centaurid -f -o cat
 
 ```
 
 `centaurid version --long`
-- version: v6.5.3
-- commit: 
+- version: v6.5.30
+- commit: 0e1eb20bafce1c2c09cfdd39b28d4d7b40365d9d
 
 ```python
 centaurid init STAVR_guide --chain-id centauri-1
