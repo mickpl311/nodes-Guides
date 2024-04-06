@@ -1,3 +1,10 @@
+<!-- START_TABLE -->
+| 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
+|-------------|---------|---------------|
+| 755.2 | 0.427576 | 322.905395200 |
+
+<!-- END_TABLE -->
+
 <h1 align="center"> Nibiru Mainnet</h1>
 
 # Nibiru Mainnet  guide
