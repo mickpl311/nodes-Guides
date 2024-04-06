@@ -5,6 +5,9 @@
 
 <!-- END_TABLE -->
 
+[🔥OUR VALIDATOR🔥](https://restake.app/nibiru/nibivaloper1fn3tnv6nuhkp47qvyhxpvgy9jr42y8576t7wm4)
+=
+
 <h1 align="center"> Nibiru Mainnet</h1>
 
 # Nibiru Mainnet  guide
