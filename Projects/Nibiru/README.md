@@ -59,7 +59,7 @@ curl -s https://get.nibiru.fi/@v1.1.0! | bash
 mv /usr/local/bin/nibid $HOME/go/bin
 ```
 
-*******🟢UPDATE🟢******* 10.04.24
+*******🟢UPDATE🟢******* 08.04.24
 ```python
 git clone https://github.com/NibiruChain/nibiru/
 cd $HOME/nibiru/
