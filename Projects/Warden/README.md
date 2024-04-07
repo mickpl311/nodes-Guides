@@ -220,11 +220,11 @@ rm -rf $(which wardend)
 #
 ### Sync Info
 ```python
-wardend status 2>&1 | jq .SyncInfo
+wardend status 2>&1 | jq .sync_info
 ```
 ### NodeINfo
 ```python
-wardend status 2>&1 | jq .NodeInfo
+wardend status 2>&1 | jq .node_info
 ```
 ### Check node logs
 ```python
@@ -242,9 +242,9 @@ wardend query bank balances warden...addressjkl1yjgn7z09ua9vms259j
 
 #### Info
 ```python
-wardend status 2>&1 | jq .NodeInfo
-wardend status 2>&1 | jq .SyncInfo
-wardend status 2>&1 | jq .ValidatorInfo
+wardend status 2>&1 | jq .node_info
+wardend status 2>&1 | jq .sync_info
+wardend status 2>&1 | jq .validator_info
 ```
 #### Check node logs
 ```python
@@ -344,11 +344,11 @@ wardend tx slashing unjail --from Wallet_name --chain-id alfama --gas 350000 -y
 ```
 #### Active Validators List
 ```python
-wardend q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+wardend q staking validators -oj | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
 ```
 #### Inactive Validators List
 ```python
-wardend q staking validators -oj --limit=3000 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
+wardend q staking validators -oj | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' | jq -r '(.tokens|tonumber/pow(10; 6)|floor|tostring) + " \t " + .description.moniker' | sort -gr | nl
 ```
 #### Check that your key matches the validator  (Win - Good.  Lose - Bad)
 ```python
