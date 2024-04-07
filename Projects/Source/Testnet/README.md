@@ -122,7 +122,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-# SnapShot (~0.1 GB) updated every 6 hours
+# SnapShot Testnet (~0.1 GB) updated every 6 hours  (Temporarily stopped)
 ```python
 cd $HOME
 apt install lz4
