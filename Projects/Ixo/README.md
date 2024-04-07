@@ -7,10 +7,6 @@
 
 
 
-
-
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/impacthub/ixovaloper1htcnjafe94aqyxfapw2dlqz242g2n2tqp9lulh)
 =
 
@@ -174,15 +170,15 @@ mv $HOME/.ixod/priv_validator_state.json.backup $HOME/.ixod/data/priv_validator_
 curl -o - -L http://ixo.wasm.stavr.tech:11/wasm-ixod.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.ixod --strip-components 2
 sudo systemctl restart ixod && journalctl -u ixod -f -o cat
 ```
-# SnapShot Mainnet (~0.2 GB) updated every 5 hours  
+# SnapShot Mainnet updated every 5 hours  
 ```python
 cd $HOME
 apt install lz4
 sudo systemctl stop ixod
 cp $HOME/.ixod/data/priv_validator_state.json $HOME/.ixod/priv_validator_state.json.backup
 rm -rf $HOME/.ixod/data
-curl -o - -L http://ixo.snapshot.stavr.tech:5/ixod/ixod-snap.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.ixod --strip-components 2
-curl -o - -L http://ixo.wasm.stavr.tech:11/wasm-ixod.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.ixod --strip-components 2
+curl -o - -L https://ixo.snapshot.stavr.tech:/ixod-snap.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.ixod --strip-components 2
+curl -o - -L https://ixo.wasm.stavr.tech:/wasm-ixod.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.ixod --strip-components 2
 mv $HOME/.ixod/priv_validator_state.json.backup $HOME/.ixod/data/priv_validator_state.json
 wget -O $HOME/.ixod/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Ixo/addrbook.json"
 sudo systemctl restart ixod && journalctl -u ixod -f -o cat
