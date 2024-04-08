@@ -31,10 +31,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y
 ```
 
-## GO 1.19
-
+## GO 1.21.6
 ```python
-ver="1.19"
+ver="1.21.6"
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
@@ -44,30 +43,30 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 13.02.24
+# Build 08.04.24
 ```python
 cd $HOME
 git clone https://github.com/lavanet/lava
-wget -O lavad https://github.com/lavanet/lava/releases/download/v0.35.0/lavad-v0.35.0-linux-amd64
+wget -O lavad https://github.com/lavanet/lava/releases/download/v1.2.0/lavad-v1.2.0-linux-amd64
 chmod +x lavad
 mv lavad $HOME/go/bin/lavad
 ```
-*******🟢UPDATE🟢******* 13.02.24
+*******🟢UPDATE🟢******* 08.04.24
 ```python
 cd $HOME
-wget -O lavad https://github.com/lavanet/lava/releases/download/v0.35.0/lavad-v0.35.0-linux-amd64
+wget -O lavad https://github.com/lavanet/lava/releases/download/v1.2.0/lavad-v1.2.0-linux-amd64
 chmod +x lavad
 mv lavad $(which lavad)
 lavad version --long | grep -e commit -e version
 lavap version
-#version: 0.35.0
-#commit: fcc0ae8829f6306ed59c98eff3b9eee0156a15bc
+#version: 1.2.0
+#commit: 72233db7870f2b2c4344e5dcbc686bef040db109
 sudo systemctl restart lavad && sudo journalctl -u lavad -f -o cat
 
 ```
 `lavad version --long`
-- version: 0.35.0
-- commit:  fcc0ae8829f6306ed59c98eff3b9eee0156a15bc
+- version: 1.2.0
+- commit: 72233db7870f2b2c4344e5dcbc686bef040db109
 
 ```python
 lavad init STAVR_guide --chain-id lava-testnet-2
