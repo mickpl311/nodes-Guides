@@ -5,15 +5,6 @@
 
 <!-- END_TABLE -->
 
-
-
-
-
-
-
-
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/jackal/jklvaloper1us3q2ytkn9zyn99gvf66u6nsn3wnq0n3kxpyvm)
 =
 
@@ -60,29 +51,29 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 11.03.24
+# Build 08.04.24
 ```python
 cd $HOME
 git clone https://github.com/JackalLabs/canine-chain && cd canine-chain
-git checkout v3.2.0
+git checkout v3.2.1
 make install
 ```
 
-*******🟢UPDATE🟢******* 11.03.24
+*******🟢UPDATE🟢******* 08.04.24
 ```python
 cd $HOME/canine-chain
 git fetch --all
-git checkout v3.2.0
+git checkout v3.2.1
 make install
 canined version --long | head
-#version: 3.2.0
-#commit: d737e32750a56c875706ab3788eb700929a8965f
+#version: 3.2.1
+#commit: 5e6eb390cca253231feb8c570a0d2d04d4b0cfa9
 systemctl restart canined && journalctl -u canined -f -o cat
 ```
 
 `canined version --long | head`
-- d737e32750a56c875706ab3788eb700929a8965f
-- 3.2.0
+- 5e6eb390cca253231feb8c570a0d2d04d4b0cfa9
+- 3.2.1
 
 ```python
 canined init STAVRguide --chain-id jackal-1
