@@ -255,7 +255,7 @@ evmosd keys list
 ```
 #### Check Balance
 ```python
-evmosd query bank balances gala...addressjkl1yjgn7z09ua9vms259j
+evmosd query bank balances evmos...addressjkl1yjgn7z09ua9vms259j
 ```
 #### Delete Key
 ```python
