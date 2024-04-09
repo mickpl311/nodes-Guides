@@ -17,7 +17,7 @@
 
 # 1) Auto_install script
 ```python
-SOOON
+wget -O ogt https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Og/ogt && chmod +x ogt && ./ogt
 ```
 
 # 2) Manual installation
