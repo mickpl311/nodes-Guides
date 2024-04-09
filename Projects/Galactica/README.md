@@ -40,12 +40,12 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 02.04.24
+# Build 09.04.24
 ```python
 cd $HOME && mkdir -p go/bin/
 git clone https://github.com/Galactica-corp/galactica
 cd galactica
-git checkout v0.1.1
+git checkout v0.1.2
 make install
 ```
 *******🟢UPDATE🟢******* 00.00.23
@@ -54,12 +54,12 @@ SOOON
 ```
 
 `galacticad version --long | grep -e version -e commit`
-- version: 
-- commit: 
+- version: 0.1.2
+- commit: fc20406dfb09f600f244f5eeae31928c835ff433
 
 ```python
-galacticad init STAVR_guide --chain-id galactica_9301-1
-galacticad config chain-id galactica_9301-1
+galacticad init STAVR_guide --chain-id galactica_9302-1
+galacticad config chain-id galactica_9302-1
 ```    
 
 ## Create/recover wallet
@@ -71,11 +71,11 @@ galacticad keys add <walletname> --recover
 
 ## Download Genesis
 ```python
-wget -O $HOME/.galactica/config/genesis.json "https://raw.githubusercontent.com/Galactica-corp/networks/main/galactica_9301-1/genesis.json"
+wget -O $HOME/.galactica/config/genesis.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/genesis.json"
 
 ```
 `sha256sum $HOME/.galactica/config/genesis.json`
-+ d65d860b220328cb3ad4ddaa6bef90b763e81dcfe3a7204eef0779534acf7380
++ 03f88591a3a60c9940c7f49d43f24e8bb6e39ea4ff22d783fcc6f12762446e59
 
 ## Set up the minimum gas price and Peers/Seeds/Filter peers/MaxPeers
 ```python
@@ -84,7 +84,7 @@ external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:26656\"/" $HOME/.galactica/config/config.toml
 peers=""
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.galactica/config/config.toml
-seeds="2b590732225bca0f3f55db543861063c705bcd40@seed01-reticulum.galactica.com:26656,fe758700e25b59b6ba6e2784badcb6024ba1b760@seed02-reticulum.galactica.com:26656,028d8c875660f0e3fb1d893acd0b2220c619625f@seed03-reticulum.galactica.com:26656"
+seeds=""
 sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" $HOME/.galactica/config/config.toml
 sed -i 's/max_num_inbound_peers =.*/max_num_inbound_peers = 50/g' $HOME/.galactica/config/config.toml
 sed -i 's/max_num_outbound_peers =.*/max_num_outbound_peers = 50/g' $HOME/.galactica/config/config.toml
@@ -109,7 +109,7 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.galactica/config/conf
 
 ## Download addrbook
 ```python
-wget -O $HOME/.galactica/config/addrbook.json "SOOOOOOOOON"
+wget -O $HOME/.galactica/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/addrbook.json"
 ```
 
 # Create a service file
@@ -121,7 +121,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which galacticad) start --chain-id galactica_9301-1
+ExecStart=$(which galacticad) start --chain-id galactica_9302-1
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -150,14 +150,14 @@ sudo systemctl restart galacticad && sudo journalctl -u galacticad -f -o cat
 ```python
 galacticad tx staking create-validator \
 --commission-rate 0.1 \
---commission-max-rate 1 \
---commission-max-change-rate 1 \
+--commission-max-rate 0.1 \
+--commission-max-change-rate 0.1 \
 --min-self-delegation "1" \
 --amount 1000000000000000000agnet \
 --pubkey $(galacticad tendermint show-validator) \
 --from <wallet> \
 --moniker="STAVR_guide" \
---chain-id galactica_9301-1 \
+--chain-id galactica_9302-1 \
 --gas 300000 \
 --identity="" \
 --website="" \
@@ -278,7 +278,7 @@ galacticad tx staking edit-validator \
 --details "Your_Description" \
 --website "Your_Website" \
 --security-contact "Your_Email" \
---chain-id galactica_9301-1 \
+--chain-id galactica_9302-1 \
 --commission-rate 0.05 \
 --from Wallet_Name \
 --gas 350000 -y
@@ -302,7 +302,7 @@ galacticad query slashing signing-info $(galacticad tendermint show-validator)
 ```
 #### Unjail
 ```python
-galacticad tx slashing unjail --from Wallet_name --chain-id galactica_9301-1 --gas 350000 -y
+galacticad tx slashing unjail --from Wallet_name --chain-id galactica_9302-1 --gas 350000 -y
 ```
 #### Active Validators List
 ```python
@@ -320,34 +320,34 @@ VALOPER=Enter_Your_valoper_Here
 
 #### Withdraw all rewards from all validators
 ```python
-galacticad tx distribution withdraw-all-rewards --from Wallet_Name --chain-id galactica_9301-1 --gas 350000 -y
+galacticad tx distribution withdraw-all-rewards --from Wallet_Name --chain-id galactica_9302-1 --gas 350000 -y
 ```
 #### Withdraw and commission from your Validator
 ```python
-galacticad tx distribution withdraw-rewards galavaloper1amxp0k0hg4edrxg85v07t9ka2tfuhamhldgf8e --from Wallet_Name --gas 350000 --chain-id=galactica_9301-1 --commission -y
+galacticad tx distribution withdraw-rewards galavaloper1amxp0k0hg4edrxg85v07t9ka2tfuhamhldgf8e --from Wallet_Name --gas 350000 --chain-id=galactica_9302-1 --commission -y
 ```
 #### Delegate tokens to your validator
 ```python
-galacticad tx staking delegate Your_galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9301-1 -y
+galacticad tx staking delegate Your_galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9302-1 -y
 ```
 #### Delegate tokens to different validator
 ```python
-galacticad tx staking delegate galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9301-1 -y
+galacticad tx staking delegate galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9302-1 -y
 ```
 #### Redelegate tokens to another validator
 ```python
-galacticad tx staking redelegate Your_galavalpoer........ galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000  --chain-id=galactica_9301-1 -y
+galacticad tx staking redelegate Your_galavalpoer........ galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000  --chain-id=galactica_9302-1 -y
 ```
 
 #### Unbond tokens from your validator or different validator
 ```python
-galacticad tx staking unbond Your_galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9301-1 -y
-galacticad tx staking unbond galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9301-1 -y
+galacticad tx staking unbond Your_galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9302-1 -y
+galacticad tx staking unbond galavalpoer........ "100000000"agnet --from Wallet_Name --gas 350000 --chain-id=galactica_9302-1 -y
 ```
 
 #### Transfer tokens from wallet to wallet
 ```python
-galacticad tx bank send Your_galaaddress............ galaaddress........... "1000000000000000000"agnet --gas 350000 --chain-id=galactica_9301-1 -y
+galacticad tx bank send Your_galaaddress............ galaaddress........... "1000000000000000000"agnet --gas 350000 --chain-id=galactica_9302-1 -y
 ```
 
 # 📝Governance
@@ -364,17 +364,17 @@ galacticad query gov proposal 1
 
 #### Vote yes
 ```python
-galacticad tx gov vote 1 yes --from Wallet_Name --gas 350000  --chain-id=galactica_9301-1 -y
+galacticad tx gov vote 1 yes --from Wallet_Name --gas 350000  --chain-id=galactica_9302-1 -y
 ```
 #### Vote no
 ```python
-galacticad tx gov vote 1 no --from Wallet_Name --gas 350000  --chain-id=galactica_9301-1 -y
+galacticad tx gov vote 1 no --from Wallet_Name --gas 350000  --chain-id=galactica_9302-1 -y
 ```
 #### Vote abstain
 ```python
-galacticad tx gov vote 1 abstain --from Wallet_Name --gas 350000  --chain-id=galactica_9301-1 -y
+galacticad tx gov vote 1 abstain --from Wallet_Name --gas 350000  --chain-id=galactica_9302-1 -y
 ```
 #### Vote no_with_veto
 ```python
-galacticad tx gov vote 1 no_with_veto --from Wallet_Name --gas 350000  --chain-id=galactica_9301-1 -y
+galacticad tx gov vote 1 no_with_veto --from Wallet_Name --gas 350000  --chain-id=galactica_9302-1 -y
 ```
