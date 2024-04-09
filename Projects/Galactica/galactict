@@ -32,7 +32,7 @@ echo "_|-_|-_|-_|-_|-_|-_|"
 read Validator_Name
 echo "_|-_|-_|-_|-_|-_|-_|"
 echo export Validator_Name=${Validator_Name} >> $HOME/.bash_profile
-echo export CHAIN_ID="galactica_9301-1" >> $HOME/.bash_profile
+echo export CHAIN_ID="galactica_9302-1" >> $HOME/.bash_profile
 source ~/.bash_profile
 
 echo -e "\e[1m\e[32m1. Updating packages and dependencies--> \e[0m" && sleep 1
@@ -56,14 +56,14 @@ echo -e "              \e[1m\e[32m3. Downloading and building binaries--> \e[0m"
 cd $HOME && mkdir -p go/bin/
 git clone https://github.com/Galactica-corp/galactica
 cd galactica
-git checkout v0.1.1
+git checkout v0.1.2
 make install
 
 galacticad init $Validator_Name --chain-id $CHAIN_ID
 galacticad config chain-id $CHAIN_ID
 
-wget -O $HOME/.galactica/config/genesis.json "https://raw.githubusercontent.com/Galactica-corp/networks/main/galactica_9301-1/genesis.json"
-#wget -O $HOME/.galactica/config/addrbook.json "SOOOOOOOOON"
+wget -O $HOME/.galactica/config/genesis.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/genesis.json"
+wget -O $HOME/.galactica/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/addrbook.json"
 
 echo -e "                     \e[1m\e[32m4. Node optimization and improvement--> \e[0m" && sleep 1
 
@@ -72,7 +72,7 @@ external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:26656\"/" $HOME/.galactica/config/config.toml
 peers=""
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.galactica/config/config.toml
-seeds="2b590732225bca0f3f55db543861063c705bcd40@seed01-reticulum.galactica.com:26656,fe758700e25b59b6ba6e2784badcb6024ba1b760@seed02-reticulum.galactica.com:26656,028d8c875660f0e3fb1d893acd0b2220c619625f@seed03-reticulum.galactica.com:26656"
+seeds=""
 sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" $HOME/.galactica/config/config.toml
 sed -i 's/max_num_inbound_peers =.*/max_num_inbound_peers = 50/g' $HOME/.galactica/config/config.toml
 sed -i 's/max_num_outbound_peers =.*/max_num_outbound_peers = 50/g' $HOME/.galactica/config/config.toml
