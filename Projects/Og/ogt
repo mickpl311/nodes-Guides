@@ -58,7 +58,7 @@ git clone https://github.com/0glabs/0g-evmos.git
 cd 0g-evmos
 git checkout v1.0.0-testnet
 make build
-mv $HOME/0g-evmos/build/ $HOME/go/bin/
+mv $HOME/0g-evmos/build/evmosd $HOME/go/bin/evmosd
 
 evmosd init $Validator_Name --chain-id $CHAIN_ID
 evmosd config chain-id $CHAIN_ID
