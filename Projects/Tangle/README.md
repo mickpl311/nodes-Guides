@@ -1,4 +1,4 @@
-# Tangle Testnet guide
+# Tangle Mainnet guide
 
 ![tangl](https://github.com/obajay/nodes-Guides/assets/44331529/78b39cb8-33de-4b55-ba66-852527e5a29d)
 
