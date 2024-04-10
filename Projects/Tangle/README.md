@@ -6,16 +6,16 @@
 [WebSite](https://www.tangle.tools/)\
 [GitHub](https://github.com/webb-tools/tangle/blob/d12e316d7c7f64fdcc76842e03944a43221285d8/chainspecs/testnet/tangle-standalone.json)
 =
-[EXPLORER](https://explorer.tangle.tools/?ref=blog.webb.tools) \
-[TELEMETRY](https://telemetry.polkadot.io/#list/0x3d22af97d919611e03bbcbda96f65988758865423e89b2d99547a6bb61452db3) \
+[EXPLORER](https://testnet-explorer.tangle.tools) \
+[TELEMETRY](https://telemetry.polkadot.io/#list/0x44f68476df71ebf765b630bf08dc1e0fedb2bf614a1aa0563b3f74f20e47b3e0) \
 [CHAIN](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.tangle.tools#/staking)
 =
 
-- **Minimum hardware requirements**:
+- **Approximate hardware requirements**:
 
 | Node Type |CPU | RAM  | Storage  | 
 |-----------|----|------|----------|
-| Testnet   |   4|  8GB | 150GB    |
+| Mainnet   |  16|  32GB| 250GB    |
 
 ### Preparing the server
 ```python
@@ -23,17 +23,20 @@ sudo apt update && sudo apt upgrade -y
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
 
-# Build 10.01.24
+# Build 10.04.24
 ```python
 cd $HOME
 mkdir -p $HOME/.tangle && cd $HOME/.tangle
-wget -O tangle https://github.com/webb-tools/tangle/releases/download/v0.6.1/tangle-testnet-linux-amd64 && chmod +x tangle
+wget -O tangle https://github.com/webb-tools/tangle/releases/download/v1.0.0/tangle-default-linux-amd64 && chmod +x tangle
 mv tangle /usr/bin/
+wget -O $HOME/.tangle/tangle-mainnet.json "https://raw.githubusercontent.com/webb-tools/tangle/main/chainspecs/mainnet/tangle-mainnet.json"
+chmod 744 ~/.tangle/tangle-mainnet.json
+sha256sum ~/.tangle/tangle-mainnet.json
+#b640e7fb959066ce29a3ddece42f17cc4e76b4383fd57e4f4249e2c80bff8a00
 ```
 
 `tangle --version`
-- tangle 0.6.1-721ffa6-x86_64-linux-gnu
-
+- tangle 1.0.0-2029231-x86_64-linux-gnu
 
 # Create a service file
 ```python
@@ -50,11 +53,10 @@ User=$USER
 Restart=always
 RestartSec=3
 ExecStart=/usr/bin/tangle \
-  --base-path $HOME/.tangle/data/validator/$yourname \
+  --base-path $HOME/.tangle \
   --name '$yourname' \
-  --chain tangle-testnet \
-  --auto-insert-keys \
-  --node-key-file "/home/$yourname/node-key" \
+  --chain tangle-mainnet \
+    --node-key-file "/home/$yourname/node-key" \
   --port 30333 \
   --rpc-port 9933 \
   --prometheus-port 9515 \
@@ -76,7 +78,7 @@ systemctl restart tangle && journalctl -u tangle -f -o cat
 
 - After launch, we wait for our node to synchronize. You can track our condition using telemetry
 
-[TELEMETRY](https://telemetry.polkadot.io/#list/0x3d22af97d919611e03bbcbda96f65988758865423e89b2d99547a6bb61452db3)
+[TELEMETRY](https://telemetry.polkadot.io/#list/0x44f68476df71ebf765b630bf08dc1e0fedb2bf614a1aa0563b3f74f20e47b3e0)
 =
 
 - After the node has synchronized, we pull out the key from our node by entering the command
@@ -93,7 +95,7 @@ curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":
 
 `logs`
 ```python
-journalctl -u tangle -f -o cat
+journalctl -fu tangle -o cat
 ```
 `restart`
 ```
