@@ -38,6 +38,53 @@ sha256sum ~/.tangle/tangle-mainnet.json
 `tangle --version`
 - tangle 1.0.0-2029231-x86_64-linux-gnu
 
+
+## Creating Keys
+`Acco`
+```python
+tangle key insert --base-path $HOME/.tangle/data/ \
+--chain $HOME/.tangle/tangle-mainnet.json \
+--scheme Sr25519 \
+--suri "<SEED_ФРАЗА-12>" \
+--key-type acco
+```
+`Babe`
+```python
+tangle key insert --base-path $HOME/.tangle/data/ \
+--chain $HOME/.tangle/tangle-mainnet.json \
+--scheme Sr25519 \
+--suri "<SEED_ФРАЗА-12>" \
+--key-type babe
+```
+
+`Imonline`
+```python
+tangle key insert --base-path $HOME/.tangle/data/ \
+--chain $HOME/.tangle/tangle-mainnet.json \
+--scheme Sr25519 \
+--suri "<SEED_ФРАЗА-12>" \
+--key-type imon
+```
+`Role`
+```python
+tangle key insert --base-path $HOME/.tangle/data/ \
+--chain $HOME/.tangle/tangle-mainnet.json \
+--scheme Ecdsa \
+--suri "<SEED_ФРАЗА-12>" \
+--key-type role
+```
+`Grandpa`
+```python
+tangle key insert --base-path $HOME/.tangle/data/ \
+--chain $HOME/.tangle/tangle-mainnet.json \
+--scheme Ed25519 \
+--suri "<SEED_ФРАЗА-12>" \
+--key-type gran
+```
+`ls $HOME/.tangle/data/chains/tangle-mainnet/keystore/`
+
+
+
 # Create a service file
 ```python
 yourname=<name>
