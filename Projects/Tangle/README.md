@@ -8,7 +8,7 @@
 =
 [EXPLORER](https://testnet-explorer.tangle.tools) \
 [TELEMETRY](https://telemetry.polkadot.io/#list/0x44f68476df71ebf765b630bf08dc1e0fedb2bf614a1aa0563b3f74f20e47b3e0) \
-[CHAIN](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.tangle.tools#/staking)
+[CHAIN](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc.tangle.tools#/accounts)
 =
 
 - **Approximate hardware requirements**:
@@ -90,7 +90,7 @@ curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":
 🟢 save the located keys in `$HOME/.tangle/node-key` and `$HOME/.tangle/data/validator/YOURNAME/chains/tangle-testnet/keystore/`
 
 ## Creating a validator
-- Go to the [website](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.tangle.tools#/accounts) and first create a wallet
+- Go to the [website](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc.tangle.tools#/accounts) and first create a wallet
 - We create a validator. To do this, select `Network - Staking - Accounts - Validator`
 
 `logs`
