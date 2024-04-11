@@ -174,6 +174,9 @@ nibid tx staking create-validator \
 --website="" -y
 ```
 
+[🧩Services and Tools🧩](https://github.com/obajay/StateSync-snapshots/tree/main/Projects/Nibiru)
+=
+
 ### Delete node (one command)
 ```python
 sudo systemctl stop nibid
