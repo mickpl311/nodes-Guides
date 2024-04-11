@@ -40,32 +40,32 @@ source $HOME/.bash_profile && \
 go version
 ```
 
-# Build 03.04.24
+# Build 11.04.24
 ```python
 cd $HOME
 git clone https://github.com/notional-labs/composable-centauri
 cd composable-centauri
-git checkout v6.5.21
+git checkout v6.5.40
 make build
 cd bin
 mv centaurid $HOME/go/bin/centaurid
 ```
 
-*******🟢UPDATE🟢******* 03.04.24
+*******🟢UPDATE🟢******* 11.04.24
 ```python
 cd $HOME/composable-centauri
 git pull
-git checkout v6.5.21
+git checkout v6.5.40
 make install
 centaurid version --long | grep -e commit -e version
-#version: v6.5.21
-#commit: 0a2aed9eb7032d4c27778c05a3328a1ba051d859
+#version: v6.5.40
+#commit: 8215600966d8a7e98c3d46f7bdcc5ba8ff207aeb
 sudo systemctl restart centaurid && sudo journalctl -u centaurid -f -o cat
 ```
 
 `centaurid version --long`
-- version: v6.5.21
-- commit: 0a2aed9eb7032d4c27778c05a3328a1ba051d859
+- version: v6.5.40
+- commit: 8215600966d8a7e98c3d46f7bdcc5ba8ff207aeb
 
 ```python
 centaurid init STAVR_guide --chain-id banksy-testnet-5
