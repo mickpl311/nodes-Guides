@@ -50,11 +50,14 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Binary   30.03.24
+# Binary   08.04.24
 ```python 
 cd $HOME && mkdir -p go/bin/
-curl -s https://get.nibiru.fi/@v1.1.0! | bash
-mv /usr/local/bin/nibid $HOME/go/bin
+git clone https://github.com/NibiruChain/nibiru/
+cd $HOME/nibiru/
+git fetch --all
+git checkout v1.2.0
+make install
 ```
 
 *******🟢UPDATE🟢******* 08.04.24
@@ -71,8 +74,8 @@ systemctl restart nibid && journalctl -fu nibid -o cat
 ```
 
 `nibid version --long | grep -e version -e commit`
-+ version: 1.1.0
-+ commit:  3d72b4f3eb17fa3a3f6006b19d8e5d868f392223
++ version: 1.2.0
++ commit:  1ba22a79e36e7ed77e2e4503e72bfbbe5c609aa8
 
 ## Initialisation
 ```python
