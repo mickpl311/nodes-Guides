@@ -132,11 +132,35 @@ EOF
 ```
 # StateSync Galactica Testnet
 ```python
-SOOOOOOOOOON
+SNAP_RPC=https://galactica.rpc.t.stavr.tech:443
+peers="b7e9b91c9e8c7e66e46dd15720cbe4f74f005592@galactica.seed-t.stavr.tech:35106"
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.galactica/config/config.toml
+LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000)); \
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+
+echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
+
+sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
+s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
+s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
+s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.galactica/config/config.toml
+galacticad tendermint unsafe-reset-all --home $HOME/.galactica --keep-addr-book
+wget -O $HOME/.galactica/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/addrbook.json"
+systemctl restart galacticad && journalctl -fu galacticad -o cat
 ```
 # SnapShot Testnet updated every 5 hours  
 ```python
-SOOOOOOOON
+cd $HOME
+snap install lz4
+sudo systemctl stop galacticad
+cp $HOME/.galactica/data/priv_validator_state.json $HOME/.galactica/priv_validator_state.json.backup
+rm -rf $HOME/.galactica/data
+curl -o - -L https://galactica.snapshot-t.stavr.tech/gala-snap.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.galactica --strip-components 2
+mv $HOME/.galactica/priv_validator_state.json.backup $HOME/.galactica/data/priv_validator_state.json
+wget -O $HOME/.galactica/config/addrbook.json "https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Galactica/addrbook.json"
+sudo systemctl restart galacticad && journalctl -u galacticad -f -o cat
 ```
 
 ## Start
