@@ -1,9 +1,11 @@
 <!-- START_TABLE -->
 | 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
 |-------------|---------|---------------|
-| 5512.2 | 0.444248 | 2448.793229441 |
+| 5655.0 | 0.413699 | 2339.476602180 |
 
 <!-- END_TABLE -->
+
+
 
 [🔥OUR VALIDATOR🔥](https://restake.app/nibiru/nibivaloper1fn3tnv6nuhkp47qvyhxpvgy9jr42y8576t7wm4)
 =
