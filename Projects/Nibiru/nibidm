@@ -54,8 +54,11 @@ go version
 echo -e "              \e[1m\e[32m3. Downloading and building binaries--> \e[0m" && sleep 1
 #INSTALL
 cd $HOME && mkdir -p go/bin/
-curl -s https://get.nibiru.fi/@v1.1.0! | bash
-mv /usr/local/bin/nibid $HOME/go/bin
+git clone https://github.com/NibiruChain/nibiru/
+cd $HOME/nibiru/
+git fetch --all
+git checkout v1.2.0
+make install
 
 nibid init $Validator_Name --chain-id $CHAIN_ID
 nibid config chain-id $CHAIN_ID
