@@ -41,29 +41,29 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 11.01.24
+# Build 11.04.24
 ```python
 cd $HOME
-wget -O pryzmd https://storage.googleapis.com/pryzm-zone/core/0.11.1/pryzmd-0.11.1-linux-amd64
+wget -O pryzmd https://storage.googleapis.com/pryzm-zone/core/0.12.0/pryzmd-0.12.0-linux-amd64
 chmod +x $HOME/pryzmd
 mv pryzmd /root/go/bin/
 
 ```
-*******🟢UPDATE🟢******* 11.01.24
+*******🟢UPDATE🟢******* 11.04.24
 ```python
 cd $HOME
-wget -O pryzmd https://storage.googleapis.com/pryzm-zone/core/0.11.1/pryzmd-0.11.1-linux-amd64
+wget -O pryzmd https://storage.googleapis.com/pryzm-zone/core/0.12.0/pryzmd-0.12.0-linux-amd64
 chmod +x $HOME/pryzmd
 mv pryzmd $(which pryzmd)
 pryzmd version --long | grep -e version -e commit
 #commit: dde07fd77b621d84403fb97ddbb118999e1fd186
-#version: 0.11.1
+#version: 0.12.0
 sudo systemctl restart pryzmd && sudo journalctl -u pryzmd -f -o cat
 ```
 
 `pryzmd version --long | grep -e version -e commit`
-- version: 0.11.1
-- commit: dde07fd77b621d84403fb97ddbb118999e1fd186
+- version: 0.12.0
+- commit: 
 
 ```python
 pryzmd init STAVR_guide --chain-id indigo-1
