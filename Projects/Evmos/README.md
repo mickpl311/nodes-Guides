@@ -5,183 +5,8 @@
 
 <!-- END_TABLE -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [🔥OUR VALIDATOR🔥](https://restake.app/evmos/evmosvaloper1v3q2kuups8gzjk2930haevwn08gl9vfld69m9g)
 =
-
 
 # Evmos Mainnet guide
 ![Evmos (1)](https://user-images.githubusercontent.com/44331529/180597649-e0fdcf22-9c86-4c7a-9133-af576fc7631d.png)
@@ -269,21 +94,21 @@ sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.evmosd/config/config.
 ```    
 ## Create a service file
 ```python
-    sudo tee /etc/systemd/system/evmosd.service > /dev/null <<EOF
-    [Unit]
-    Description=evmos
-    After=network-online.target
+sudo tee /etc/systemd/system/evmosd.service > /dev/null <<EOF
+[Unit]
+Description=evmos
+After=network-online.target
 
-    [Service]
-    User=$USER
-    ExecStart=$(which evmosd) start
-    Restart=on-failure
-    RestartSec=3
-    LimitNOFILE=65535
+[Service]
+User=$USER
+ExecStart=$(which evmosd) start
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65535
 
-    [Install]
-    WantedBy=multi-user.target
-    EOF
+[Install]
+WantedBy=multi-user.target
+EOF
 ```
 
  [Snapshot Polkachu](https://polkachu.com/tendermint_snapshots/evmos)    (optional)
