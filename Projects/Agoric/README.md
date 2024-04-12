@@ -47,21 +47,21 @@ source $HOME/.bash_profile
 go version
 ```
 
-# Build 21.12.23
+# Build 02.04.24
 ```python
 cd $HOME
 git clone https://github.com/Agoric/agoric-sdk
 cd agoric-sdk
-git checkout agoric-upgrade-13
+git checkout agoric-upgrade-14
 yarn install
 yarn build
 cd packages/cosmic-swingset && make
 ```
-*******🟢UPDATE🟢******* 21.12.23
+*******🟢UPDATE🟢******* 02.04.24
 ```python
 cd $HOME/agoric-sdk
 git fetch --all
-git checkout agoric-upgrade-13
+git checkout agoric-upgrade-14
 yarn install
 yarn build
 cd packages/cosmic-swingset && make
@@ -69,8 +69,8 @@ systemctl restart agoricd.service && journalctl -u agoricd.service -f -o cat
 
 ```
 `agd version --long`
-- version: 0.35.0-u13.0
-- commit: 5a6cdeb0c
+- version: 0.35.0-u14.1
+- commit: d69c01100
 
 ```python
 agd init STAVRuide --chain-id agoric-3
