@@ -1,9 +1,11 @@
 <!-- START_TABLE -->
 | 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
 |-------------|---------|---------------|
-| BLD | 0.107174 | USD |
+| 132120.012 | 0.10959 | 14479.032137 |
 
 <!-- END_TABLE -->
+
+
 
 
 
