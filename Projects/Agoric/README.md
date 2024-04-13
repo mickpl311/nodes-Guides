@@ -162,8 +162,8 @@ EOF
 ```
 ## Start
 ```python
-sudo systemctl daemon-reload &&
-sudo systemctl enable agoricd.service &&
+sudo systemctl daemon-reload
+sudo systemctl enable agoricd.service
 systemctl restart agoricd.service && journalctl -u agoricd.service -f -o cat
 ```
 
