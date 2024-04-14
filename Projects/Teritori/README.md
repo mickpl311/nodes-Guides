@@ -1,9 +1,11 @@
 <!-- START_TABLE -->
 | 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
 |-------------|---------|---------------|
-| 520436.6 | 0.01079472 | 5617.967971959 |
+| 520437.4 | 0.00947258 | 4929.885046070 |
 
 <!-- END_TABLE -->
+
+
 
 
 [🔥OUR VALIDATOR🔥](https://restake.app/teritori/torivaloper1sqk72uwf6tg867ssuu7whxfu9pfcyrpeqwa92c)
