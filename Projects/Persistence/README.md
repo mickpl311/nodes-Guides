@@ -49,23 +49,24 @@ go version
 cd $HOME && mkdir -p go/bin/
 git clone https://github.com/persistenceOne/persistenceCore
 cd persistenceCore
-git checkout v11.9.0
+git checkout v11.9.0-fh
 make install
 ```
 *******🟢UPDATE🟢******* 15.04.24
 ```python
 cd $HOME/persistenceCore
-git pull && git checkout v11.9.0
+git pull
+git checkout v11.9.0-fh
 make install
 persistenceCore version --long | grep -e commit -e version
-#commit: 9395f72ea9df8bda206320548ba1d02654e5987d
-#version: v11.9.0-rc0
+#commit: 1f9f3aa50cf16d9c04a58d59d06f001fe764b857
+#version: v11.9.0-fh
 sudo systemctl restart persistenceCore && sudo journalctl -fu persistenceCore -o cat
 ```
 
 `persistenceCore version --long | head`
-- version: v11.9.0-rc0
-- commit: 9395f72ea9df8bda206320548ba1d02654e5987d
+- version: v11.9.0-fh
+- commit: 1f9f3aa50cf16d9c04a58d59d06f001fe764b857
 
 ```python
 persistenceCore init STAVR_guide --chain-id core-1
