@@ -1,9 +1,11 @@
 <!-- START_TABLE -->
 | 🛡Trusted Delegations🛡 | Token price🧲 | 💰Result in USD💰 |
 |-------------|---------|---------------|
-| 13065.1 | 0.082631 | 1079.590186 |
+| 74268.6 | 0.08118 | 6029.131765 |
 
 <!-- END_TABLE -->
+
+
 
 [🔥OUR VALIDATOR🔥](https://restake.app/kyve/kyvevaloper16qwtkeadppy3u9z6pu9tuy8zq02u3vecun3s0d)
 =
