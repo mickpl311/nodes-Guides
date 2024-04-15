@@ -152,7 +152,7 @@ EOF
 # StateSync Composable Mainnet
 ```python
 SNAP_RPC=https://composable.rpc.m.stavr.tech:443
-peers=""
+peers="aa6398f9644e98fa3d04f7dbdd7740c995eb0530@composable.seed.stavr.tech:20306"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.banksy/config/config.toml
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000)); \
