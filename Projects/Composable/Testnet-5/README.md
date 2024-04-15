@@ -81,7 +81,7 @@ centaurid keys add <walletname> --recover
 
 ## Download Genesis
 ```python
-curl -Ls https://raw.githubusercontent.com/notional-labs/composable-networks/main/banksy-testnet-5/genesis.json > ~/.banksy/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/obajay/nodes-Guides/main/Projects/Composable/Testnet-5/genesis.json > ~/.banksy/config/genesis.json
 ```
 `sha256sum $HOME/.banksy/config/genesis.json`
 + 5fbcc1a2d40de313977d8861e3f775d290ec013d7a63cc73432139950f0c4ce7
